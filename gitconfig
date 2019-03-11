@@ -47,5 +47,5 @@
 [branch "master"]
   mergeoptions = --no-edit
 [user]
-	email = zsh git_setup.shcd ~/code/$GITHUB_USERNAME/dotfiles
-	name = cd ~/code/$GITHUB_USERNAME/dotfiles
+	email = 1281277805@qq.com
+	name = PEILI JIANG
