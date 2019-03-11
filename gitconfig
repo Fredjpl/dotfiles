@@ -47,5 +47,5 @@
 [branch "master"]
   mergeoptions = --no-edit
 [user]
-	email = dotfiles git:(master) ✗ cd ~/code/$GITHUB_USERNAME/dotfiles
-	name = eiL
+	email = zsh git_setup.shcd ~/code/$GITHUB_USERNAME/dotfiles
+	name = cd ~/code/$GITHUB_USERNAME/dotfiles
