@@ -37,28 +37,18 @@ if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
 fi
 cd "$CURRENT_DIR"
 
-setopt nocasematch
-if [[ ! `uname` =~ "darwin" ]]; then
-  git config --global core.editor "subl -n -w $@ >/dev/null 2>&1"
-  echo 'export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"' >> zshrc
-else
-  git config --global core.editor "'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w"
-  bundler_editor="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
-  echo "export BUNDLER_EDITOR=\"${bundler_editor} -a\"" >> zshrc
-fi
-
-# Sublime Text
+# VS Code
 if [[ ! `uname` =~ "darwin" ]]; then
   SUBL_PATH=~/.config/sublime-text-3
 else
   SUBL_PATH=~/Library/Application\ Support/Sublime\ Text\ 3
 fi
-mkdir -p $SUBL_PATH/Packages/User $SUBL_PATH/Installed\ Packages
-backup "$SUBL_PATH/Packages/User/Preferences.sublime-settings"
-curl -k https://sublime.wbond.net/Package%20Control.sublime-package > $SUBL_PATH/Installed\ Packages/Package\ Control.sublime-package
-ln -s $PWD/Preferences.sublime-settings $SUBL_PATH/Packages/User/Preferences.sublime-settings
-ln -s $PWD/Package\ Control.sublime-settings $SUBL_PATH/Packages/User/Package\ Control.sublime-settings
-ln -s $PWD/SublimeLinter.sublime-settings $SUBL_PATH/Packages/User/SublimeLinter.sublime-settings
+
+code --install-extension atishay-jain.all-autocomplete
+code --install-extension Joshpeng.sublime-babel-vscode
+code --install-extension Craigmaslowski.erb
+code --install-extension mrmlnc.vscode-scss
+code --install-extension misogi.ruby-rubocop
 
 zsh ~/.zshrc
 
